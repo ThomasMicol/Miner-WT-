@@ -4,8 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Kris/source/repos/MinerGame/MinerGame/Content/sprites/sHull_Base.png</File>
-    <File>C:/Users/Kris/source/repos/MinerGame/MinerGame/Content/sprites/sWall.png</File>
-    <File>C:/Users/Kris/source/repos/MinerGame/MinerGame/Content/sprites/sCursor.png</File>
+    <File>C:/Users/Kris/Documents/GitHub/Miner-WT-/MinerGame/Content/sprites/sHull_Base.png</File>
+    <File>C:/Users/Kris/Documents/GitHub/Miner-WT-/MinerGame/Content/sprites/sWall.png</File>
+    <File>C:/Users/Kris/Documents/GitHub/Miner-WT-/MinerGame/Content/sprites/sCursor.png</File>
   </SourceFiles>
 </SourceFileCollection>

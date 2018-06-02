@@ -11,9 +11,18 @@ namespace MinerGame
     public class Sprite: Component
     {
         protected Texture2D Texture;
-
         public Vector2 Position { get; set; }
         public Vector2 Origin = new Vector2(0, 0);
+        public int Width
+        {
+            get { return Texture.Width; }
+        }
+
+        public int Height
+        {
+            get { return Texture.Height; }
+        }
+
         public Rectangle Rectangle
         {
             get { return new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height); }

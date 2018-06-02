@@ -142,26 +142,23 @@ namespace MinerGame
             player.Move(currentKeyboardState);
         }
 
+        private void ClearRegion(int width, int height, Vector2 startPos)
+        {
+
+        }
         private void CollisionChecks()
         {
-            /*Rectangle PlayerHitMask_Body = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Width, player.Height);
+            Rectangle PlayerHitMask_Body = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Width, player.Height);
             Rectangle MouseRectangle = new Rectangle(currentMouseState.X, currentMouseState.Y, cursor.Width, cursor.Height);
-            if ( currentMouseState.LeftButton == ButtonState.Pressed) {
-                if (PlayerHitMask_Body.Intersects(MouseRectangle))
-                {
-                    // player.Position.X += 32;
-                }
-            }
-
-            foreach(Wall wall in Walls)
+            for(int i = 0; i < Walls.Count; i ++)
             {
+                Wall wall = Walls[i];
                 Rectangle wallHitBox = new Rectangle((int)wall.Position.X, (int)wall.Position.Y, wall.Width, wall.Height);
                 if (wallHitBox.Intersects(PlayerHitMask_Body))
                 {
-                    //Walls.Remove(wall);
-                    wall.Active = false;
+                    Walls.RemoveAt(i);
                 }
-            }*/
+            }
         }
     }
 }

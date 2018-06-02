@@ -20,6 +20,7 @@ namespace MinerGame
         protected string FuelTank;
         protected string Fan;
         protected string Engine;
+        protected string FlashLight;
         protected string Battery;
         public float MoveSpeed = 2f;
 

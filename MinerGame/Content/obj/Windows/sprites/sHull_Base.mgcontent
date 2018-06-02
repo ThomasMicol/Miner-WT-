@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Kris/source/repos/MinerGame/MinerGame/Content/sprites/sHull_Base.png</SourceFile>
+  <SourceFile>C:/Users/Kris/Documents/GitHub/Miner-WT-/MinerGame/Content/sprites/sHull_Base.png</SourceFile>
   <SourceTime>2018-05-31T21:07:14.061052+12:00</SourceTime>
-  <DestFile>C:/Users/Kris/source/repos/MinerGame/MinerGame/Content/bin/Windows/sprites/sHull_Base.xnb</DestFile>
-  <DestTime>2018-05-31T21:16:30.2583007+12:00</DestTime>
+  <DestFile>C:/Users/Kris/Documents/GitHub/Miner-WT-/MinerGame/Content/bin/Windows/sprites/sHull_Base.xnb</DestFile>
+  <DestTime>2018-06-02T19:46:29.3828526+12:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-02T04:05:36+13:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
