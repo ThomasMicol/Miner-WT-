@@ -17,7 +17,7 @@ namespace MinerGame
         protected Hull Hull;
         protected string Tracks;
         protected string Cargo;
-        protected string FuelTank;
+        protected FuelTank FuelTank;
         protected string Fan;
         protected string Engine;
         protected string FlashLight;
@@ -27,7 +27,7 @@ namespace MinerGame
         public Rig(Texture2D texture)
             : base(texture)
         {
-
+            SetFuelTank();
         }
         public Hull SetHull()
         {
@@ -45,6 +45,12 @@ namespace MinerGame
             Drill drill = new Drill_BrittleStone();
             drill.Initialize();
             return drill;
+        }
+
+        public FuelTank SetFuelTank()
+        {
+            FuelTank fuelTank = new FuelTank_Stone();
+            return fuelTank;
         }
 
         public void Move(KeyboardState key)

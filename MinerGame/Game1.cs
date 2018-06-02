@@ -16,18 +16,17 @@ namespace MinerGame
         SpriteBatch spriteBatch;
         public Rig player;
         KeyboardState currentKeyboardState;
-        KeyboardState previousKeyboardState;
+        //KeyboardState previousKeyboardState;
         MouseState currentMouseState;
-        MouseState previousMouseState;
+        //MouseState previousMouseState;
         List<Wall> Walls = new List<Wall>();
-        Cursor cursor;
 
         private Camera Camera;
-        private List<Component> Components;
+        //private List<Component> Components;
         public static int ScreenHeight;
         public static int ScreenWidth;
 
-        Camera camera;
+        // Camera camera;
 
         public Game1()
         {
@@ -56,7 +55,6 @@ namespace MinerGame
             player = new Rig(Content.Load<Texture2D>("sprites/sHull_Base"));
             player.Position = new Vector2((ScreenWidth / 2) - (player.Width / 2),
                 (ScreenHeight / 2) - (player.Height / 2));
-            cursor = new Cursor();
             base.Initialize();
         }
 
@@ -86,11 +84,10 @@ namespace MinerGame
             CreateRoom(8, 8, new Vector2(32, 32));
 
             Camera = new Camera();
-            Components = new List<Component>()
-            {
-                player
-            };
-            cursor.Initialize(Content.Load<Texture2D>("sprites/sCursor"), new Vector2(0, 0));
+            // Components = new List<Component>()
+            //{
+                //player
+            //};
             // TODO: use this.Content to load your game content here
         }
 
@@ -114,7 +111,6 @@ namespace MinerGame
                 Exit();
 
             MouseState mousePos = Mouse.GetState();
-            cursor.Update();
             // TODO: Add your update logic here
             currentKeyboardState = Keyboard.GetState();
             currentMouseState = Mouse.GetState();
@@ -137,7 +133,6 @@ namespace MinerGame
                 wall.Draw(gameTime, spriteBatch);
             }
             player.Draw(gameTime, spriteBatch);
-            cursor.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
@@ -172,7 +167,6 @@ namespace MinerGame
         private void CollisionChecks()
         {
             Rectangle PlayerHitMask_Body = player.Rectangle;
-            Rectangle MouseRectangle = new Rectangle(currentMouseState.X, currentMouseState.Y, cursor.Width, cursor.Height);
             for(int i = 0; i < Walls.Count; i ++)
             {
                 Wall wall = Walls[i];
