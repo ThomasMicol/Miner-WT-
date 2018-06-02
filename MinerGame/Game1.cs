@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MinerGame
 {
@@ -52,7 +54,8 @@ namespace MinerGame
         {
             // TODO: Add your initialization logic here
             player = new Rig(Content.Load<Texture2D>("sprites/sHull_Base"));
-            player.Position = new Vector2(0, 0);
+            player.Position = new Vector2((ScreenWidth / 2) - (player.Width / 2),
+                (ScreenHeight / 2) - (player.Height / 2));
             cursor = new Cursor();
             base.Initialize();
         }
@@ -79,6 +82,8 @@ namespace MinerGame
                     Walls.Add(wall);
                 }
             }
+
+            CreateRoom(8, 8, new Vector2(32, 32));
 
             Camera = new Camera();
             Components = new List<Component>()
@@ -142,13 +147,31 @@ namespace MinerGame
             player.Move(currentKeyboardState);
         }
 
-        private void ClearRegion(int width, int height, Vector2 startPos)
+        private void CreateRoom(int width, int height, Vector2 startPos)
         {
+            // Find center of 'chunk'
+            int cX, cY;
+            cX = (int)Math.Floor((decimal)ScreenWidth / 16) / 2;
+            cY = (int)Math.Floor((decimal)ScreenHeight / 16) / 2;
+            cX -= width / 2;
+            cY -= height / 2;
+            startPos = new Vector2(cX * 16, cY * 16);
+            for ( int i = 0; i < width; i ++ )
+            {
+                for ( int h = 0; h < height; h ++)
+                {
+                    Rectangle Mask = new Rectangle((int)startPos.X + (16 * i), (int)startPos.Y + (16 * h), 16, 16);
+                    Wall targetWall = Walls.Where(aWall => aWall.Position.X == Mask.X && aWall.Position.Y == Mask.Y).FirstOrDefault();
+                    Walls.Remove(targetWall);
+                }
+            }
 
+            player.Position = new Vector2(startPos.X + (16 * (width / 2) - (player.Width / 2)),
+                startPos.Y + (16 * (height / 2)) - (player.Height / 2));
         }
         private void CollisionChecks()
         {
-            Rectangle PlayerHitMask_Body = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Width, player.Height);
+            Rectangle PlayerHitMask_Body = player.Rectangle;
             Rectangle MouseRectangle = new Rectangle(currentMouseState.X, currentMouseState.Y, cursor.Width, cursor.Height);
             for(int i = 0; i < Walls.Count; i ++)
             {
