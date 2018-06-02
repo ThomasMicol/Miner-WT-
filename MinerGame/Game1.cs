@@ -77,8 +77,8 @@ namespace MinerGame
                 for(int j = 0; j < WallCountHeight; j ++)
                 {
                     Vector2 wallPosition = new Vector2(0 + (16 * i), 0 + (16 * j));
-                    Wall wall = new Wall();
-                    wall.Initialize(Content.Load<Texture2D>("sprites/sWall"), wallPosition);
+                    Wall wall = new Wall(Content.Load<Texture2D>("sprites/sWall"));
+                    wall.Position = wallPosition;
                     Walls.Add(wall);
                 }
             }
@@ -134,7 +134,7 @@ namespace MinerGame
             spriteBatch.Begin(transformMatrix: Camera.Transform);
             foreach(Wall wall in Walls)
             {
-                wall.Draw(spriteBatch);
+                wall.Draw(gameTime, spriteBatch);
             }
             player.Draw(gameTime, spriteBatch);
             cursor.Draw(spriteBatch);
