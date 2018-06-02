@@ -47,6 +47,8 @@
     <Compile Include="Descriptor.cs" />
     <Compile Include="Drills\Drill.cs" />
     <Compile Include="Drills\Drill_BrittleStone.cs" />
+    <Compile Include="FuelTank\FuelTank.cs" />
+    <Compile Include="FuelTank\FuelTank_Stone.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Hulls\Hull.cs" />
     <Compile Include="Hulls\Hull_BrittleStone.cs" />

@@ -163,7 +163,7 @@ namespace MinerGame
 
             player.Position = new Vector2(startPos.X + (16 * (width / 2) - (player.Width / 2)),
                 startPos.Y + (16 * (height / 2)) - (player.Height / 2));
-        }
+           }
         private void CollisionChecks()
         {
             Rectangle PlayerHitMask_Body = player.Rectangle;
